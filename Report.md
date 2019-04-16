@@ -33,7 +33,7 @@ The task is episodic, and in order to solve the environment, your agent must get
 # Algorithm
 Deep Q-Learning was used to solve the enviroment.
 
-Deep Q-Learning:
+### Deep Q-Learning:
    * Initialize replay memory D with capacity N
    
    * Initialize action-value function q with random weights w
