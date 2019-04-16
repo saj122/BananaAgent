@@ -52,7 +52,7 @@ Download the environment from one of the links below. You need only select the e
 
 (For AWS) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux_NoVis.zip) to obtain the environment.
 
-Finally, unzip the environment archive in the 'project's environment' directory and eventually adjust thr path to the UnityEnvironment in the code.
+Finally, unzip the environment archive in the 'project's environment' directory and eventually adjust the path to the UnityEnvironment in the code.
    
 # Train Agent
-Execute the provided notebook after building your own local environment and make necessary adjustements for the path to the UnityEnvironment in the code.
+Execute the provided notebook after building your own local environment and make necessary adjustments for the path to the UnityEnvironment in the code.
