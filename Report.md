@@ -68,3 +68,47 @@ Deep Q-Learning:
          
             Every C steps, reset: w- <- w
 ```
+# DQN Hyperparameters
+   
+   * BUFFER_SIZE = int(1e5)
+   * BATCH_SIZE = 64
+   * GAMMA = 0.99
+   * TAU = 0.003
+   * LR = 0.0005
+   * UPDATE_EVERY = 4
+   
+# Code Implementation
+
+The code was derived from the Lunar Lander code from the Deep Reinforcment Learning Nanodegree.
+
+The code is all in one file Navigation.ipynb.
+
+It includes the QNetwork model. This network will be trained to predict the action to perform depending on the environment observed states. The Neural Network model used:
+
+   Input nodes (37) -> Fully Connected Layer (32 nodes, Relu activation) -> Fully Connected Layer (32 nodes, Relu activation) -> Fully Connected Layer (32 nodes, Relu activation) -> Ouput nodes (4)
+   
+A DQN Agent class is implemented as follows: 
+
+   * The constructor initializes the memory buffer and 2 instances of the neural network. 
+   * step(): The step method stores a step taken by the agent (state, action, reward, next_state, done) and places it in the replay buffer. Every 4 steps the target network is updated with the current weights from the local network.
+   * act(): returns actions for the input state from the current policy.
+   * learn(): Given experiences from the replay buffer the parameters of the network are updated.
+   * soft_update(): updates the target weight values from the local weight values.
+   
+The Replay Buffer has a fixed size and stores experience tuples. There are two methods to add experience and to randomly sample a batch for learning.
+
+The rest of the code includes the main block for training the agent and then playing back episodes with the latest checkpoint.
+   
+# Results
+
+Given the hyperparameters and neural network the agent was able to achieve an average reward of 13 in 383 episodes.
+
+![alt text](https://github.com/saj122/BananaAgent/blob/master/images/navigation.png)
+
+# Future Work
+
+The original DQN research paper utilized a CNN to learn from the pixels instead of ray vectors. 
+
+Using a CNN, you could use a Double DQN which tends to reduce the observed overestimations of the DQN.
+
+Since reality and games are not static and depend on time, utilizing an LSTM could be better at estimating motion in games.
