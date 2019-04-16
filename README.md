@@ -4,7 +4,7 @@
 
 In this project, the goal is to train an agent to navigate a virtual world and collect as many yellow bananas as possible while avoiding blue bananas.
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png
+![alt text](https://github.com/saj122/BananaAgent/blob/master/images/banana.gif)
 
 # Environment Details
 
