@@ -29,3 +29,40 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 3 - turn right.
 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
+
+# Algorithm
+Deep Q-Learning was used to solve the enviroment.
+
+Deep Q-Learning:
+   * Initialize replay memory D with capacity N
+   
+   * Initialize action-value function q with random weights w
+   
+   * Initialize target action-value weights w- <- w
+   
+   * for the episode e <- 1 to M:
+   
+      * Initial input frame x_t
+      
+      * Prepare initial state: S <- phi(<x_t>)
+      
+      * for time step t <- 1 to T:
+         #### Sample:
+         Choose action A from state S using policy pi <- e-Greedy(q(S,A,w))
+         
+         Take action A, observe reward R, and next input frame x_t+1
+         
+         Prepare next state: S' <- phi(<x_t-2,x_t-1,x_t,x_t+1>)
+         
+         Store experience tuple (S,A,R,S') in replay memory D
+         
+         S <- S'
+         
+         #### Learn:
+         Obtain random minibatch of tuples(s_j,a_j,r_j,s_j+1) from D
+         
+         Set target y_j = r_j + gamma * max_a q(s_j+1,a,w-)
+         
+         Update: delta_w = alpha * (y_j - q(s_j,a_j,w)) * q_gradient(s_j,a_j,w)
+         
+         Every C steps, reset: w- <- w
