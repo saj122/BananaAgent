@@ -12,9 +12,9 @@ The environment is based on Unity ML-agents
 
 Note: The project environment provided by Udacity is similar to, but not identical to the Banana Collector environment on the Unity ML-Agents GitHub page.
 
-    The Unity Machine Learning Agents Toolkit (ML-Agents) is an open-source Unity plugin that enables games and 
-    simulations to serve as environments for training intelligent agents. Agents can be trained using reinforcement 
-    learning, imitation learning, neuroevolution, or other machine learning methods through a simple-to-use Python API.
+> The Unity Machine Learning Agents Toolkit (ML-Agents) is an open-source Unity plugin that enables games and 
+simulations to serve as environments for training intelligent agents. Agents can be trained using reinforcement 
+learning, imitation learning, neuroevolution, or other machine learning methods through a simple-to-use Python API.
 
 A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. Thus, the goal of your agent is to collect as many yellow bananas as possible while avoiding blue bananas.
 
@@ -33,7 +33,8 @@ The task is episodic, and in order to solve the environment, your agent must get
 # Algorithm
 Deep Q-Learning was used to solve the enviroment.
 
-### Deep Q-Learning:
+```
+Deep Q-Learning:
    * Initialize replay memory D with capacity N
    
    * Initialize action-value function q with random weights w
@@ -47,22 +48,23 @@ Deep Q-Learning was used to solve the enviroment.
       * Prepare initial state: S <- phi(<x_t>)
       
       * for time step t <- 1 to T:
-         #### Sample:
-         Choose action A from state S using policy pi <- e-Greedy(q(S,A,w))
+         Sample:
+            Choose action A from state S using policy pi <- e-Greedy(q(S,A,w))
          
-         Take action A, observe reward R, and next input frame x_t+1
+            Take action A, observe reward R, and next input frame x_t+1
          
-         Prepare next state: S' <- phi(<x_t-2,x_t-1,x_t,x_t+1>)
+            Prepare next state: S' <- phi(<x_t-2,x_t-1,x_t,x_t+1>)
          
-         Store experience tuple (S,A,R,S') in replay memory D
+            Store experience tuple (S,A,R,S') in replay memory D
          
-         S <- S'
+            S <- S'
          
-         #### Learn:
-         Obtain random minibatch of tuples(s_j,a_j,r_j,s_j+1) from D
+         Learn:
+            Obtain random minibatch of tuples(s_j,a_j,r_j,s_j+1) from D
          
-         Set target y_j = r_j + gamma * max_a q(s_j+1,a,w-)
+            Set target y_j = r_j + gamma * max_a q(s_j+1,a,w-)
          
-         Update: delta_w = alpha * (y_j - q(s_j,a_j,w)) * q_gradient(s_j,a_j,w)
+            Update: delta_w = alpha * (y_j - q(s_j,a_j,w)) * q_gradient(s_j,a_j,w)
          
-         Every C steps, reset: w- <- w
+            Every C steps, reset: w- <- w
+```
